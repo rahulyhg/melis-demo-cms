@@ -1,7 +1,7 @@
 {
   "name": "benborla/melis-demo-cms",
   "description": "Melis Platform Demo Cms Site Module",
-  "type": "melisplatform-module",
+  "type": "melisplatform-site",
   "license": "OSL-3.0",
   "homepage": "https://github.com/benborla/melis-demo-cms",
   "support": {
@@ -25,12 +25,13 @@
     "module"
   ],
   "extra": {
-    "module-name": "MelisDemoCms",
+    "module-name": "MelisDemoCmsSite",
     "dbdeploy": true,
     "melis-site": true,
     "melis-module-category": "cms"
   },
   "require": {
+    "composer/installers": "~1.0",
     "php": "^5.5 || ^7.0",
     "ext-openssl": "*",
     "ext-json": "*",
