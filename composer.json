@@ -29,7 +29,7 @@
     "dbdeploy": true,
     "melis-site": true,
     "melis-module-category": "cms",
-    "installer-name": "MelisDemoCms"
+    "installer-name": "MelisDemoCms",
     "installer-paths": {
 	"module/MelisSites/{$name}": ["type:melisplatform-site"]
     }
