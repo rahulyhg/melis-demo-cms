@@ -29,9 +29,10 @@
     "dbdeploy": true,
     "melis-site": true,
     "melis-module-category": "cms",
-	  "installer-paths": {
-	    "module/MelisSites/{$name}": ["vendor/package"]
-	}
+    "installer-name": "MelisDemoCms"
+    "installer-paths": {
+	"module/MelisSites/{$name}": ["type:melisplatform-site"]
+    }
   },
   "require": {
     "composer/installers": "~1.0",
