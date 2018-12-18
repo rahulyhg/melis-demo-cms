@@ -5,18 +5,18 @@
   "license": "OSL-3.0",
   "homepage": "https://github.com/benborla/melis-demo-cms",
   "support": {
-	"email": "contact@melistechnology.com",
+    "email": "contact@melistechnology.com",
     "source": "https://github.com/benborla/melis-demo-cms",
     "issues": "https://github.com/benborla/melis-demo-cms/issues",
-	"docs": "https://www.melistechnology.com/melistechnology/resources/download-documentation/id/17#documentation"
+    "docs": "https://www.melistechnology.com/melistechnology/resources/download-documentation/id/17#documentation"
   },
   "authors": [
-	{
-		"name": "Melis Technology",
-		"email": "contact@melistechnology.com",
-		"homepage": "https://www.melistechnology.com",
-		"role": "Developer"
-	}
+    {
+      "name": "Melis Technology",
+      "email": "contact@melistechnology.com",
+      "homepage": "https://www.melistechnology.com",
+      "role": "Developer"
+    }
   ],
   "keywords": [
     "cms",
@@ -31,7 +31,9 @@
     "melis-module-category": "cms",
     "installer-name": "MelisDemoCms",
     "installer-paths": {
-	"module/MelisSites/{$name}": ["type:melisplatform-site"]
+      "module/MelisSites/{$name}": [
+        "type:melisplatform-site"
+      ]
     }
   },
   "require": {
