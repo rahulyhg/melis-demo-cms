@@ -42,11 +42,9 @@ return [
             'applicationMelisDemoCms' => [
                 'type' => 'Literal',
                 'options' => [
-                    'route' => '/MelisDemoCms',
+                    'route' => 'MelisDemoCms',
                     'defaults' => [
-                        '__NAMESPACE__' => 'MelisDemoCms\Controller',
-                        'controller' => 'MelisSetup',
-                        'action' => 'setupForm',
+                        '__NAMESPACE__' => 'MelisDemoCms\Controller'
                     ],
                 ],
                 'may_terminate' => true,
@@ -71,6 +69,39 @@ return [
                             'defaults' => [
                                 'controller' => 'MelisDemoCms\Controller\MelisSetup',
                                 'action' => 'setupForm',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+            'melis-backoffice' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => '/melis[/]',
+                ],
+                'child_routes' => [
+                    'application-MelisDemoCms' => [
+                        'type' => 'Literal',
+                        'options' => [
+                            'route' => 'MelisDemoCms',
+                            'defaults' => [
+                                '__NAMESPACE__' => 'MelisDemoCms\Controller',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                        'child_routes' => [
+                            'default' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => '/[:controller[/:action]]',
+                                    'constraints' => [
+                                        'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                    ],
+                                    'defaults' => [
+                                        '__NAMESPACE__' => 'MelisDemoCms\Controller',
+                                    ],
+                                ],
                             ],
                         ],
                     ],
@@ -109,8 +140,8 @@ return [
             'MelisDemoCms\Controller\Testimonial' => 'MelisDemoCms\Controller\TestimonialController',
             'MelisDemoCms\Controller\Search' => 'MelisDemoCms\Controller\SearchController',
             'MelisDemoCms\Controller\Setup' => 'MelisDemoCms\Controller\SetupController',
-            'MelisDemoCms\Controller\MelisSetupPostDownload'    => 'MelisDemoCms\Controller\MelisSetupPostDownloadController',
-            'MelisDemoCms\Controller\MelisSetupPostUpdate'    => 'MelisDemoCms\Controller\MelisSetupPostUpdateController',
+            'MelisDemoCms\Controller\MelisSetupPostDownload'    => \MelisDemoCms\Controller\MelisSetupPostDownloadController::class,
+            'MelisDemoCms\Controller\MelisSetupPostUpdate'    => \MelisDemoCms\Controller\MelisSetupPostUpdateController::class,
         ],
     ],
     'view_helpers' => [

@@ -13,6 +13,7 @@ use MelisCore\MelisSetupInterface;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\JsonModel;
 use Zend\View\Model\ViewModel;
+use Zend\Session\Container;
 
 /**
  * @property bool $showOnMarketplacePostSetup
@@ -51,8 +52,9 @@ class MelisSetupPostDownloadController extends AbstractActionController implemen
      */
     private function getFormSiteDemo()
     {
-        $melisMelisCoreConfig = $this->serviceLocator->get('MelisCoreConfig');
-        $appConfigForm = $melisMelisCoreConfig->getItem('melis_demo_cms_setup/forms/melis_installer_demo_cms');
+        /** @var \MelisCore\Service\MelisCoreConfigService $config */
+        $config = $this->getServiceLocator()->get('MelisCoreConfig');
+        $appConfigForm = $config->getItem('melis_demo_cms_setup/forms/melis_installer_demo_cms');
 
 
         $factory = new \Zend\Form\Factory();
@@ -187,7 +189,7 @@ class MelisSetupPostDownloadController extends AbstractActionController implemen
                 //siteDemoCms installation start
                 $scheme = $siteDemoCmsForm->get('sdom_scheme')->getValue();
                 $domain = $siteDemoCmsForm->get('sdom_domain')->getValue();
-                
+
                 //Save siteDemoCms config
                 if (false === $hasErrors) {
                     /** @var \MelisDemoCms\Service\SetupDemoCmsService $setupSrv */
@@ -206,7 +208,6 @@ class MelisSetupPostDownloadController extends AbstractActionController implemen
         } else {
             $errors = $this->formatErrorMessage($siteDemoCmsForm->getMessages());
         }
-
 
         $response = [
             'success' => $success,
