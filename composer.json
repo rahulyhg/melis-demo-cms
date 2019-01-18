@@ -1,7 +1,7 @@
 {
   "name": "benborla/melis-demo-cms",
   "description": "Melis Platform Demo Cms Site Module",
-  "type": "melisplatform-site",
+  "type": "melisplatform-module"
   "license": "OSL-3.0",
   "homepage": "https://github.com/benborla/melis-demo-cms",
   "support": {
