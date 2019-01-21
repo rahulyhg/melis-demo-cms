@@ -148,75 +148,10 @@ class MelisSetupPostDownloadController extends AbstractActionController implemen
      */
     public function submitAction()
     {
-        $success = 0;
-        $message = 'tr_install_setup_message_ko';
+        $success = true;
+        $message = $this->getTool()->getTranslation('tr_install_setup_message_ko');
         $errors = [];
 
-        $data = null;
-        if (!$data) {
-            $data = $this->getTool()->sanitizeRecursive($this->params()->fromRoute());
-        }
-
-        // Getting the DemoSite config
-        $config = $this->getServiceLocator()->get('config');
-        $siteId = $config['site']['MelisDemoCms']['datas']['site_id'];
-
-        $docPath = $_SERVER['DOCUMENT_ROOT'];
-
-        $setupDatas = include $docPath . '/../module/MelisSites/MelisDemoCms/install/MelisDemoCms.setup.php';
-        $siteData = $setupDatas['melis_site'];
-
-        $siteDemoCmsForm = $this->getFormSiteDemo();
-        $siteDemoCmsForm->setData($data);
-
-        $container = new \Zend\Session\Container('melis_modules_configuration_status');
-        $hasErrors = false;
-
-        if ($siteDemoCmsForm->isValid()) {
-
-            try {
-                foreach ($container->getArrayCopy() as $module) {
-                    if (!$module) {
-                        $hasErrors = true;
-                    }
-                }
-
-                $container = new \Zend\Session\Container('melismodules');
-                $installerModuleConfigurationSuccess = isset($container['module_configuration']['success']) ?
-                    (bool) $container['module_configuration']['success'] : false;
-
-
-                //siteDemoCms installation start
-                $scheme = $siteDemoCmsForm->get('sdom_scheme')->getValue();
-                $domain = $siteDemoCmsForm->get('sdom_domain')->getValue();
-
-                //Save siteDemoCms config
-                if (false === $hasErrors) {
-                    /** @var \MelisDemoCms\Service\SetupDemoCmsService $setupSrv */
-                    $setupSrv = $this->getServiceLocator()->get('SetupDemoCmsService');
-
-                    // $setupSrv->setupSite($siteData);
-                    $setupSrv->setup(getenv('MELIS_PLATFORM'));
-                    $setupSrv->setupSiteDomain($scheme, $domain);
-
-                    $success = 1;
-                    $message = 'tr_install_setup_message_ok';
-                }
-            } catch (\Exception $e) {
-                $errors = $e->getMessage();
-            }
-        } else {
-            $errors = $this->formatErrorMessage($siteDemoCmsForm->getMessages());
-        }
-
-        $response = [
-            'success' => $success,
-            'message' => $this->getTool()->getTranslation($message),
-            'errors' => $errors,
-            'siteDemoCmsForm' => 'melis_installer_demo_cms',
-            'domainForm' => 'melis_installer_domain',
-        ];
-
-        return new JsonModel($response);
+        return new JsonModel(func_get_args());
     }
 }
