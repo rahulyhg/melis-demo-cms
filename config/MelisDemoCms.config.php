@@ -1,13 +1,13 @@
 <?php
 
-return array(
-    'site' => array(
-        'MelisDemoCms' => array(
-            'conf' => array(
+return [
+    'site' => [
+        'MelisDemoCms' => [
+            'conf' => [
                 'id' => 'id_MelisDemoCms',
-                'home_page' => '[:homePageId]'
-            ),
-            'datas' => array(
+                'home_page' => '[:homePageId]',
+            ],
+            'datas' => [
                 // Site id
                 'site_id' => '[:siteId]',
                 // Submenu limit
@@ -29,93 +29,93 @@ return array(
                  * to trigger services that needed to install the MelisDemoCms
                  * and to avoid deselect from selecting modules during installations.
                  */
-                'required_modules' => array(
+                'required_modules' => [
                     'MelisCmsNews',
                     'MelisCmsSlider',
                     'MelisCmsProspects',
-                )
-            )   
-        )
-    ),
-    'plugins' => array(
-        'melisfront' => array(
-            'plugins' => array(
-                'MelisFrontMenuPlugin' => array(
-                    'front' => array(
-                        'template_path' => array('MelisDemoCms/plugin/menu'),
-                    ),
-                ),
-                'MelisFrontBreadcrumbPlugin' => array(
-                    'front' => array(
-                        'template_path' => array('MelisDemoCms/plugin/breadcrumb'),
-                    ),
-                ),
-                'MelisFrontShowListFromFolderPlugin' => array(
-                    'front' => array(
-                        'template_path' => array('MelisDemoCms/plugin/testimonial-slider'),
-                        'files' => array(
-                            'js' => array(
-                                '/MelisDemoCms/js/MelisPlugins/MelisDemoCms.MelisFrontShowListFromFolderPlugin.init.js'
-                            ),
-                        ),
-                    ),
-                ),
-                'MelisFrontSearchResultsPlugin' => array(
-                    'front' => array(
-                        'template_path' => array('MelisDemoCms/plugin/search-results'),
-                    ),
-                ),
-            ),
-        ),
-        'meliscmsnews' => array(
-            'plugins' => array(
-                'MelisCmsNewsListNewsPlugin' => array(
-                    'front' => array(
-                        'template_path' => array('MelisDemoCms/plugin/news-list'),
-                    ),
-                ),
-                'MelisCmsNewsShowNewsPlugin' => array(
-                    'front' => array(
-                        'template_path' => array('MelisDemoCms/plugin/news-details'),
-                    ),
-                ),
-                'MelisCmsNewsLatestNewsPlugin' => array(
-                    'front' => array(
-                        'template_path' => array('MelisDemoCms/plugin/latest-news'),
-                        'files' => array(
-                            'js' => array(
-                                '/MelisDemoCms/js/MelisPlugins/MelisDemoCms.MelisCmsNewsLatestNewsPlugin.init.js'
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-        ),
-        'meliscmsslider' => array(
-            'plugins' => array(
-                'MelisCmsSliderShowSliderPlugin' => array(
-                    'front' => array(
-                        'template_path' => array(
+                ],
+            ],
+        ],
+    ],
+    'plugins' => [
+        'melisfront' => [
+            'plugins' => [
+                'MelisFrontMenuPlugin' => [
+                    'front' => [
+                        'template_path' => ['MelisDemoCms/plugin/menu'],
+                    ],
+                ],
+                'MelisFrontBreadcrumbPlugin' => [
+                    'front' => [
+                        'template_path' => ['MelisDemoCms/plugin/breadcrumb'],
+                    ],
+                ],
+                'MelisFrontShowListFromFolderPlugin' => [
+                    'front' => [
+                        'template_path' => ['MelisDemoCms/plugin/testimonial-slider'],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCms/js/MelisPlugins/MelisDemoCms.MelisFrontShowListFromFolderPlugin.init.js',
+                            ],
+                        ],
+                    ],
+                ],
+                'MelisFrontSearchResultsPlugin' => [
+                    'front' => [
+                        'template_path' => ['MelisDemoCms/plugin/search-results'],
+                    ],
+                ],
+            ],
+        ],
+        'meliscmsnews' => [
+            'plugins' => [
+                'MelisCmsNewsListNewsPlugin' => [
+                    'front' => [
+                        'template_path' => ['MelisDemoCms/plugin/news-list'],
+                    ],
+                ],
+                'MelisCmsNewsShowNewsPlugin' => [
+                    'front' => [
+                        'template_path' => ['MelisDemoCms/plugin/news-details'],
+                    ],
+                ],
+                'MelisCmsNewsLatestNewsPlugin' => [
+                    'front' => [
+                        'template_path' => ['MelisDemoCms/plugin/latest-news'],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCms/js/MelisPlugins/MelisDemoCms.MelisCmsNewsLatestNewsPlugin.init.js',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
+        'meliscmsslider' => [
+            'plugins' => [
+                'MelisCmsSliderShowSliderPlugin' => [
+                    'front' => [
+                        'template_path' => [
                             'MelisDemoCms/plugin/homepage-slider',
                             'MelisDemoCms/plugin/aboutus-slider',
-                        ),
-                        'files' => array(
-                            'js' => array(
-                                '/MelisDemoCms/js/MelisPlugins/MelisDemoCms.MelisCmsSliderShowSliderPlugin.init.js'
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-        ),
-        'meliscmsprospects' => array(
-            'plugins' => array(
-                'MelisCmsProspectsShowFormPlugin' => array(
-                    'front' => array(
-                        'template_path' => array('MelisDemoCms/plugin/contactus'),
-                    ),
-                ),
-            ),
-        ),
-    ),
-);
+                        ],
+                        'files' => [
+                            'js' => [
+                                '/MelisDemoCms/js/MelisPlugins/MelisDemoCms.MelisCmsSliderShowSliderPlugin.init.js',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
+        'meliscmsprospects' => [
+            'plugins' => [
+                'MelisCmsProspectsShowFormPlugin' => [
+                    'front' => [
+                        'template_path' => ['MelisDemoCms/plugin/contactus'],
+                    ],
+                ],
+            ],
+        ],
+    ],
+];
